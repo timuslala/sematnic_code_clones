@@ -1,0 +1,17 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+old/dataset
+GonerCode/dataset
+BCB_2gram_txt
+# Virtual environments
+.venv
+old/npy
+dataset
+MethodVectors
+BCB_2_matrix.pkl
+BCB_2-gram_results.pkl

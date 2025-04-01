@@ -1,0 +1,13 @@
+[project]
+name = "sematnic-code-clones"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "anytree>=2.12.1",
+    "javalang>=0.13.0",
+    "numpy>=2.0.2",
+    "pandas>=2.2.3",
+    "scikit-learn>=1.6.1",
+]
