@@ -22,9 +22,9 @@ def feature_extraction_all(feature_csv):
 
 
 def obtain_dataset(dir_path):
-    if False:
-        clone_featureCSV = dir_path + 'BCB_clone_4_dis.csv'
-        nonclone_featureCSV = dir_path + 'BCB_nonclone_4_dis.csv'
+    if True:
+        clone_featureCSV = dir_path + '\\BCB_clone_4_dis.csv'
+        nonclone_featureCSV = dir_path + '\\BCB_nonclone_4_dis.csv'
 
     else:
         clone_featureCSV = dir_path + '\\GCJ_clone_4_dis.csv'
@@ -198,10 +198,10 @@ def main():
     randomforest(vectors, labels)
     print('decisiontree')
     decision_tree(vectors, labels)
-    #print('knn_1')
-    #knn_1(vectors, labels)
-    # print('knn_3')
-    # knn_3(vectors, labels)
+    print('knn_1')
+    knn_1(vectors, labels)
+    print('knn_3')
+    knn_3(vectors, labels)
 
 
 if __name__ == '__main__':

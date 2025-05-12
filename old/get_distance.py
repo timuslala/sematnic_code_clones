@@ -103,9 +103,9 @@ def get_distance(ori, out):
 if __name__ == '__main__':
 
     #get_distance('./GCJ_clone.csv', 'GCJ_clone')
-    #get_distance('./BCB_clone.csv', 'BCB_clone')
-    get_distance('./GCJ_nonclone.csv', 'GCJ_nonclone')
-    #get_distance('./BCB_nonclone.csv', 'BCB_nonclone')
+    get_distance('./BCB_clone.csv', 'BCB_clone')
+    #get_distance('./GCJ_nonclone.csv', 'GCJ_nonclone')
+    get_distance('./BCB_nonclone.csv', 'BCB_nonclone')
 
 
 

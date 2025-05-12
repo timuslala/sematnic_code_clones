@@ -32,3 +32,6 @@ old/GCJ_clone_4_dis.csv
 old/GCJ_clone.csv
 old/GCJ_nonclone_4_dis.csv
 old/GCJ_nonclone.csv
+old/*.pkl
+old/*.csv
+old/*.log

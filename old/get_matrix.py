@@ -133,7 +133,7 @@ def one_matrix(path, pkl_path=None):
     createtree(newtree, tree, nodelist)
 
     if pkl_path != None:
-        out_pkl = pkl_path + path.split('/')[-1].split('.java')[0] + '.pkl'
+        out_pkl = pkl_path + path.split('\\')[-1].split('.java')[0] + '.pkl'
         WriteAndRead.write_pkl(out_pkl, newtree)
 
     # token type dictionary
@@ -179,14 +179,14 @@ def one_matrix(path, pkl_path=None):
                 matrix[k][p] = matrix[k][p]/total
 
     matrix = np.array(matrix)
-    filename = path.split('/')[-1].split('.java')[0]
+    filename = path.split('\\')[-1].split('.java')[0]
     print(filename)
-    npypath = './npy/' + filename
+    npypath = '.\\npy\\' + filename
     np.save(npypath, matrix)
     return matrix
 
 
-javapath = './dataset/googlejam4/'
+javapath = '.\\dataset\\id2sourcecode\\'
 def allmain():
     # Read all java files from a folder
     javalist = []
