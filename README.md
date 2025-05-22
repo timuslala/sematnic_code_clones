@@ -1,4 +1,8 @@
-# Repo, którego celem jest reprodukcja 2 sposobów znajdywania sklonowanych części kodu. 
+# Repo, którego celem jest reprodukcja 2 sposobów znajdywania sklonowanych części kodu. - Zrobione
+# Dalszy cel, który został odkryty po analizie danych. Naprawa datasetu BigCloneBench. Dataset ten zawiera dużo przykładów nie oznaczonych jako klony, mimo, że są klonami typu 4.
+
+Aktualnie najlepiej działające podejście: grupowanie (KNN) po embeddingach krótkich opisów kawałków kodu wygenerowanych przez LLM.
+
 Typy klonów kodu:
 - Type-1 (textual similarity): Code fragments that are identical, except for variations in white space, layout, and
 comments.
