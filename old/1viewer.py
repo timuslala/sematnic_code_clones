@@ -27,10 +27,10 @@ def display_contents(event=None):
 app = tk.Tk()
 app.title("Clipboard File Viewer")
 
-text_area1 = scrolledtext.ScrolledText(app, width=60, height=80)
+text_area1 = scrolledtext.ScrolledText(app, width=110, height=60)
 text_area1.pack(side=tk.LEFT, padx=10, pady=10)
 
-text_area2 = scrolledtext.ScrolledText(app, width=60, height=80)
+text_area2 = scrolledtext.ScrolledText(app, width=110, height=60)
 text_area2.pack(side=tk.RIGHT, padx=10, pady=10)
 
 # Bind Ctrl+V to display_contents
