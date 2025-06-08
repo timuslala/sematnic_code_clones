@@ -59,8 +59,8 @@ async def process_codes(df, start_index, checkpoint_file="BCB_checkpoint.pkl", c
         df.at[i, 'description'] = desc
         logging.info(f"Row {i}: Description saved.")
 
-        # Zapisuj checkpoint co 100 wierszy do checkpointu
-        if i % 100 == 0:
+        # Zapisuj checkpoint co checkpoint_save_frequency wierszy do checkpointu
+        if i % checkpoint_save_frequency == 0:
             df.to_pickle(checkpoint_file)
             logging.info(f"Checkpoint saved at row {i}.")
     return df
