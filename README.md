@@ -23,16 +23,16 @@ One of the methods to see which code snippets are clones and which are not is cl
 https://drive.google.com/drive/u/1/folders/1DKLOvjTinMGJLjMlA5YTlAaBtNWju8jb
 
 ### Steps:
-
+**Note:** All Python scripts should be run with the working directory set to the `./Amain` folder.
 1. Download this repository.
 2. Restore the Python environment using `pyproject.toml`.
-   - **Tip:** To skip steps 3-8 (which are time-consuming), download `BCB_updated.pkl` from the Google Drive above and place it in the `./old` folder.
+   - **Tip:** To skip steps 3-8 (which are time-consuming), download `BCB_updated.pkl` from the Google Drive above and place it in the `./Amain` folder.
 3. Download the initial dataset `id2sourcecode.zip` and label files `BCB_clone.csv` and `BCB_nonclone.csv` from Google Drive.
-4. Unpack the dataset to `./old/dataset/id2sourcecode`.
-5. Place the `.csv` files in the `./old` folder.
-6. Run `./old/pickle_dataset.py`.
+4. Unpack the dataset to `./Amain/dataset/id2sourcecode`.
+5. Place the `.csv` files in the `./Amain` folder.
+6. Run `pickle_dataset.py`.
 7. Install LM Studio server with the `qwen2.5-coder-3b-instruct` model.
-8. Run `./old/updateBCB.pkl.py` (**Warning:** long processing time).
+8. Run `updateBCB.pkl.py` (**Warning:** long processing time).
 9. Run `clustering_kmeans.py`.
 10. Run `cosine_similarity.py`.
 11. Run `produce_new_dataset.py`.
@@ -46,6 +46,16 @@ https://drive.google.com/drive/u/1/folders/1DKLOvjTinMGJLjMlA5YTlAaBtNWju8jb
 - `matching_rows_false_positives.csv` — Code pairs previously marked as clones, but now considered non-clones.
 - `matching_rows_false_negatives.csv` — Code pairs previously marked as non-clones, but now considered clones.
 
+| Type                        |  Row count |
+|-----------------------------------|----------------------------|
+| matching_rows_true_positives      | 121060         |
+| matching_rows_true_negatives      | 265918         |
+| matching_rows_false_positives     | 113436        |
+| matching_rows_false_negatives     | 4233        |
+| non_matching_rows_true_positives  | 19633     |
+| non_matching_rows_true_negatives  | 4982     |
+| non_matching_rows_false_positives | 15871    |
+| non_matching_rows_false_negatives | 3899    |
 ---
 
 ## Types of Code Clones
@@ -75,16 +85,16 @@ Aktualnie najlepiej działające podejście: grupowanie (KNN) po embeddingach kr
 ## Reprodukcja
 
 https://drive.google.com/drive/u/1/folders/1DKLOvjTinMGJLjMlA5YTlAaBtNWju8jb
-
+**Uwaga:** Wszystkie skrypty powinny być uruchamiane, kiedy katalogiem roboczym jest ./Amain
 1. Pobrać repozytorium.
 2. Przywrócić środowisko pythonowe z pliku `pyproject.toml`.
-   - **Wskazówka:** Aby pominąć kroki 3-8 (czasochłonne), pobierz `BCB_updated.pkl` z powyższego Google Drive i umieść w folderze `./old`.
+   - **Wskazówka:** Aby pominąć kroki 3-8 (czasochłonne), pobierz `BCB_updated.pkl` z powyższego Google Drive i umieść w folderze `./Amain`.
 3. Pobrać początkowy dataset `id2sourcecode.zip` oraz pliki z labelami `BCB_clone.csv` i `BCB_nonclone.csv`.
-4. Wypakować dataset do folderu `./old/dataset/id2sourcecode`.
-5. Umieścić pliki `.csv` w folderze `./old`.
-6. Uruchomić `./old/pickle_dataset.py`.
+4. Wypakować dataset do folderu `./Amain/dataset/id2sourcecode`.
+5. Umieścić pliki `.csv` w folderze `./Amain`.
+6. Uruchomić `./Amain/pickle_dataset.py`.
 7. Zainstalować LM Studio server z modelem `qwen2.5-coder-3b-instruct`.
-8. Uruchomić `./old/updateBCB.pkl.py` (**Uwaga:** długi czas przetwarzania).
+8. Uruchomić `./Amain/updateBCB.pkl.py` (**Uwaga:** długi czas przetwarzania).
 9. Uruchomić `clustering_kmeans.py`.
 10. Uruchomić `cosine_similarity.py`.
 11. Uruchomić `produce_new_dataset.py`.
@@ -98,6 +108,18 @@ https://drive.google.com/drive/u/1/folders/1DKLOvjTinMGJLjMlA5YTlAaBtNWju8jb
 - `matching_rows_false_positives.csv` — Pary kodów wcześniej oznaczone jako klony, a obecnie jako nieklony.
 - `matching_rows_false_negatives.csv` — Pary kodów wcześniej oznaczone jako nieklony, a obecnie jako klony.
 
+
+
+| Typ                         | Liczba wierszy  |
+|-----------------------------------|----------------------------|
+| matching_rows_true_positives      | 121060         |
+| matching_rows_true_negatives      | 265918         |
+| matching_rows_false_positives     | 113436        |
+| matching_rows_false_negatives     | 4233        |
+| non_matching_rows_true_positives  | 19633     |
+| non_matching_rows_true_negatives  | 4982     |
+| non_matching_rows_false_positives | 15871    |
+| non_matching_rows_false_negatives | 3899    |
 ---
 
 ## Typy klonów kodu

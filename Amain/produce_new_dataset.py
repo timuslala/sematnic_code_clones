@@ -52,14 +52,15 @@ cos_false_negatives = cos_non_clones.where(cos_non_clones["cosine_emb"]>= 0.6).d
 cos_false_positives = cos_clones.where(cos_clones["cosine_emb"]< 0.6).dropna()
 cos_true_positives = cos_clones.where(cos_clones["cosine_emb"]>= 0.6).dropna()
 cos_true_negatives = cos_non_clones.where(cos_non_clones["cosine_emb"]< 0.6).dropna()
-#change mat_clones["code1"] to int and then to str
+#change code1 and code2 to int and then to str in all dataframes
 cos_false_positives["code1"] = cos_false_positives["code1"].astype(int).astype(str)
-#change mat_clones["code2"] to int and then to str
 cos_false_positives["code2"] = cos_false_positives["code2"].astype(int).astype(str)
-#change mat_non_clones["code1"] to int and then to str
 cos_false_negatives["code1"] = cos_false_negatives["code1"].astype(int).astype(str)
-#change mat_non_clones["code2"] to int and then to str
 cos_false_negatives["code2"] = cos_false_negatives["code2"].astype(int).astype(str)
+cos_true_positives["code1"] = cos_true_positives["code1"].astype(int).astype(str)
+cos_true_positives["code2"] = cos_true_positives["code2"].astype(int).astype(str)
+cos_true_negatives["code1"] = cos_true_negatives["code1"].astype(int).astype(str)
+cos_true_negatives["code2"] = cos_true_negatives["code2"].astype(int).astype(str)
 
 #rows that have identical 1st and 2nd column from cos_false_negatives and kmeans_false_negatives
 false_negatives_ids = kmeans_false_negatives[['FUNCTION_ID_ONE', 'FUNCTION_ID_TWO']].values.tolist()
