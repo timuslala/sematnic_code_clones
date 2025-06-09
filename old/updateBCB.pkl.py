@@ -51,21 +51,24 @@ async def get_code_description(code, semaphore, row_index):
             return f"Error: {str(e)}"
 
 
-async def process_codes(df, start_index):
+async def process_codes(df, start_index, checkpoint_file="BCB_checkpoint.pkl", checkpoint_save_frequency = 100):
     semaphore = asyncio.Semaphore(10)  # Limit to 10 concurrent requests
-    tasks = [
-        get_code_description(row['content'], semaphore, index)
-        for index, row in df.iloc[start_index:].iterrows()
-    ]
-    descriptions = await asyncio.gather(*tasks, return_exceptions=True)
-    for i, desc in enumerate(descriptions, start=start_index):
-        logging.info(f"Row {i}: Description: {desc}")
-    df.loc[start_index:, 'description'] = descriptions
+
+    for i, row in df.iloc[start_index:].iterrows():
+        desc = await get_code_description(row['content'], semaphore, i)
+        df.at[i, 'description'] = desc
+        logging.info(f"Row {i}: Description saved.")
+
+        # Zapisuj checkpoint co checkpoint_save_frequency wierszy do checkpointu
+        if i % checkpoint_save_frequency == 0:
+            df.to_pickle(checkpoint_file)
+            logging.info(f"Checkpoint saved at row {i}.")
     return df
 
 
 def main():
     checkpoint_file = 'BCB_checkpoint.pkl'
+    checkpoint_save_frequency = 100
     final_output_file = 'BCB_updated.pkl'
 
     try:
@@ -91,7 +94,7 @@ def main():
         # Run asynchronous processing for the entire dataset
         loop = asyncio.get_event_loop()
         logging.info(f"Processing rows {start_index} to {len(df) - 1}...")
-        df = loop.run_until_complete(process_codes(df, start_index))
+        df = loop.run_until_complete(process_codes(df, start_index, checkpoint_file, checkpoint_save_frequency))
 
         # Save the final DataFrame to a pickle file
         df.to_pickle(final_output_file)
