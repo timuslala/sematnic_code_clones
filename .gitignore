@@ -10,7 +10,7 @@ GonerCode/dataset
 BCB_2gram_txt
 # Virtual environments
 .venv
-old/npy
+
 dataset
 MethodVectors
 BCB_2_matrix.pkl
@@ -28,10 +28,15 @@ GonerCode/BCB_3gram/fss_dict.json
 GonerCode/GCJ_2gram/2-gram-lenth.csv
 GonerCode/GCJ_2gram/2-gram-order-dict.json
 GonerCode/GCJ_2gram/2gram_index_dict.json
-old/GCJ_clone_4_dis.csv
-old/GCJ_clone.csv
-old/GCJ_nonclone_4_dis.csv
-old/GCJ_nonclone.csv
-old/*.pkl
-old/*.csv
-old/*.log
+Amain/GCJ_clone_4_dis.csv
+Amain/GCJ_clone.csv
+Amain/GCJ_nonclone_4_dis.csv
+Amain/GCJ_nonclone.csv
+Amain/*.pkl
+Amain/*.csv
+Amain/*.log
+Amain/*.npy
+Amain/dataset
+Amain/npy
+
+
